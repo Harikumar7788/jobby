@@ -3,7 +3,7 @@ import Loader from 'react-loader-spinner'
 import {BsSearch} from 'react-icons/bs'
 import Cookies from 'js-cookie'
 import JobCard from '../JobCard'
-import JobsFilterGroup from '../JobsFilterGroup'
+import FiltersGroup from '../FiltersGroup'
 import './index.css'
 
 const employmentTypesList = [
@@ -135,16 +135,17 @@ class JobProfileSection extends Component {
             type="search"
             className="search"
             placeholder="Search"
-            testid="searchButton"
+            data-testid="searchButton"
             value={searchInput}
             onChange={this.changeSearchInput}
             onKeyDown={this.onEnterKey}
           />
           <button
             type="button"
-            testid="searchButton"
+            data-testid="searchButton"
             className="search-button"
             onClick={this.getJobDetails}
+            aria-label="Logout"
           >
             <BsSearch className="search-icon" />
           </button>
@@ -162,16 +163,18 @@ class JobProfileSection extends Component {
             type="search"
             className="search"
             placeholder="Search"
-            testid="searchButton"
+            data-testid="searchButton"
             value={searchInput}
             onChange={this.changeSearchInput}
             onKeyDown={this.onEnterKey}
+            aria-label="Logout"
           />
           <button
             type="button"
-            testid="searchButton"
+            data-testid="searchButton"
             className="search-button"
             onClick={this.getJobDetails}
+            aria-label="Logout"
           >
             <BsSearch className="search-icon" />
           </button>
@@ -202,7 +205,7 @@ class JobProfileSection extends Component {
       </p>
       <button
         type="button"
-        testid="button"
+        data-testid="button"
         className="jobs-failure-button"
         onClick={this.getJobDetails}
       >
@@ -212,7 +215,7 @@ class JobProfileSection extends Component {
   )
 
   renderLoadingView = () => (
-    <div className="profile-loader-container" testid="loader">
+    <div className="profile-loader-container" data-testid="loader">
       <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
     </div>
   )
@@ -237,7 +240,7 @@ class JobProfileSection extends Component {
     return (
       <div className="job-details-container">
         <div className="render-group-items">
-          <JobsFilterGroup
+          <FiltersGroup
             employmentTypesList={employmentTypesList}
             salaryRangesList={salaryRangesList}
             changeEmploymentType={this.changeEmploymentType}
